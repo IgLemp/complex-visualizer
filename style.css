@@ -1,0 +1,30 @@
+html, body {
+    height: 99%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1%;
+}
+
+#playground {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+    background-color: white;
+    height: 100%;
+}
+
+#header {
+    display: flex;
+    padding: 0.2%;
+}
+
+.canv {
+    background-color: black;
+    width: 100%;
+    height: 67%;
+}

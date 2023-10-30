@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <h1 style="padding-right: 30px;">Complex number visualizer</h1>
+        <div style="margin-top: auto; margin-bottom: auto;">
+            <select name="operation" id="opbtn">
+                <option value="add">addition</option>
+                <option value="sub">subtraction</option>
+                <option value="mul">multiplication</option>
+                <option value="div">division</option>
+            </select>
+        </div>
+    </div>
+    <div id="playground">
+        <div><h4 id="z1t" style="padding-left: 2%;">Z1</h4><canvas class="canv" id="z1"></div>
+        <div><h4 id="z2t" style="padding-left: 2%;">Z2</h4><canvas class="canv" id="z2"></div>
+        <div><h4 id="zet" style="padding-left: 2%;">Z3</h4><canvas class="canv" id="re"></div>
+    </div>
+    <footer>Made by Igor Łempicki</footer>
+    <script src="complex.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
