@@ -70,37 +70,37 @@ const draw_axis_lines = (ctx) => {
     ctx.stroke();
 
 
-    for (let i = center.x + division_line; i < size.w; i += division_line) {
+    for (let i = 1; i * division_line < size.w; i += 1) {
         ctx.beginPath();
-        ctx.moveTo(i, center.y + 10);
-        ctx.lineTo(i, center.y - 10);
+        ctx.moveTo(center.x + (i * division_line), center.y + 10);
+        ctx.lineTo(center.x + (i * division_line), center.y - 10);
         ctx.stroke();
         ctx.font = "12px serif";
-        ctx.fillText(Math.floor(i / division_line) - 12, i - 3, center.y - 22);
+        ctx.fillText(i, center.x + (i * division_line) - 4, center.y - 22);
     }
 
-    for (let i = center.x - division_line; i > 0; i -= division_line) {
+    for (let i = -1; i * division_line > center.x - size.w; i -= 1) {
         ctx.beginPath();
-        ctx.moveTo(i, center.y + 10);
-        ctx.lineTo(i, center.y - 10);
+        ctx.moveTo(center.x + (i * division_line), center.y + 10);
+        ctx.lineTo(center.x + (i * division_line), center.y - 10);
         ctx.stroke();
-        ctx.fillText(Math.floor(i / division_line) - 12, i - 8, center.y - 22);
+        ctx.fillText(i, center.x + (i * division_line) - 8, center.y - 22);
     }
 
-    for (let i = center.y + division_line; i < size.h; i += division_line) {
+    for (let i = 1; i < size.h; i += 1) {
         ctx.beginPath();
-        ctx.moveTo(center.x + 10, i);
-        ctx.lineTo(center.x - 10, i);
+        ctx.moveTo(center.x + 10, center.y + (i * division_line));
+        ctx.lineTo(center.x - 10, center.y + (i * division_line));
         ctx.stroke();
-        ctx.fillText(-(Math.floor(i / division_line) - 12), center.x - 33, i + 4);
+        ctx.fillText(i, center.x - 33, center.y + (i * division_line) + 4);
     }
 
-    for (let i = center.y - division_line; i > 0; i -= division_line) {
+    for (let i = -1; i * division_line > center.y - size.w; i -= 1) {
         ctx.beginPath();
-        ctx.moveTo(center.x + 10, i);
-        ctx.lineTo(center.x - 10, i);
+        ctx.moveTo(center.x + 10, center.y + (i * division_line));
+        ctx.lineTo(center.x - 10, center.y + (i * division_line));
         ctx.stroke();
-        ctx.fillText(-(Math.floor(i / division_line) - 12), center.x - 29, i + 4);
+        ctx.fillText(i, center.x - 33, center.y + (i * division_line) + 4);
     }
 
     ctx.font = "24px serif";
@@ -119,18 +119,8 @@ window.addEventListener("load", () => {
 
     size = { w: canvas_rect.width, h: canvas_rect.width };
     center = { x: size.w / 2, y: size.h / 2 };
-});
 
-window.addEventListener("resize", () => {
-    z1_canvas.width  = canvas_rect.width;
-    z1_canvas.height = canvas_rect.height;
-    z2_canvas.width  = canvas_rect.width;
-    z2_canvas.height = canvas_rect.height;
-    ze_canvas.width  = canvas_rect.width;
-    ze_canvas.height = canvas_rect.height;
-
-    size = { w: canvas_rect.width, h: canvas_rect.width };
-    center = { x: size.w / 2, y: size.h / 2 };
+    console.log(canvas_rect);
 });
 
 window.addEventListener("mousedown", () => { mouse_is_down = true;  });
